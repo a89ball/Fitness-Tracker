@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 3000;
 
 
 const app = express();
-///middleware
+// Setting up Mdidleware
 app.use(logger("dev"));
 
 app.use(express.urlencoded({ extended: true }));
@@ -23,3 +23,10 @@ mongoose.connect( process.env.MONGODB_URI || 'mongodb://localhost/workout',
   useFindAndModify: false
 });
 
+// Setting up routes
+app.use(require("./routes/apiRoutes.js"));
+app.use(require("./routes/html.js"));
+
+app.listen(PORT, () => {
+  console.log(`App running on port ${PORT}!`);
+});
