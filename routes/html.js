@@ -2,7 +2,7 @@ const path = require("path");
 const router = require('express').Router()
 
 
-
+// Sorting routes for the HTML pages
   router.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "../public/index.html"));
   });
